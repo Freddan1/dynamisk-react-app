@@ -14,6 +14,7 @@ const MovieApi = () => {
             const post = await response.json();
             if(post.Response =="True"){
                 setPost(post.Search)
+                console.log(setPost)
             } else{
                 console.log(post.Error)
             }
@@ -29,6 +30,7 @@ const MovieApi = () => {
     },[])
 
     function handleChange(e){
+        e.preventDefault()
         setSearch(e.target.value)
         placeHolder=search
         fetchMovies();
@@ -37,6 +39,7 @@ const MovieApi = () => {
     
     function onSubmit(e){
         e.preventDefault()
+        setSearch(e.target.value)
         placeHolder=search
         fetchMovies();
     }
