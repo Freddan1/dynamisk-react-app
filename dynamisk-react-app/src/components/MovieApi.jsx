@@ -26,7 +26,6 @@ const MovieApi = () => {
 
     useEffect (() =>{
         fetchMovies();
-        console.log('runs at the beginning (componentDidMount) ')
     },[])
 
     function handleChange(e){
