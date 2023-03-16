@@ -23,6 +23,7 @@ const MovieApi = () => {
             console.log(error)
         }
     }
+    console.log(fetchMovies)
 
     useEffect (() =>{
         fetchMovies();
