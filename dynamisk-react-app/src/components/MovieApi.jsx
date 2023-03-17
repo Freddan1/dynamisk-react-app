@@ -7,23 +7,27 @@ const MovieApi = () => {
     var placeHolder = "batman"
     const [search, setSearch] = useState ("")
     const [post, setPost] = useState([]);
+    const [errorMessage, setErrorMessage] = useState ("")
     
     const fetchMovies = async () => {
         try {
             const response = await fetch('http://www.omdbapi.com/?apikey=57a921d4&s='+placeHolder);
             const post = await response.json();
             if(post.Response =="True"){
-                setPost(post.Search)
-                console.log(setPost)
+                setPost(post.Search);
+                setErrorMessage("");
+                console.log(post)
             } else{
-                console.log(post.Error)
+                setPost[""];
+                setErrorMessage(post.Error)
             }
 
         } catch (error){
             console.log(error)
+            setPost([])
+            setErrorMessage("An error occurred while fetching movies.")
         }
     }
-    console.log(fetchMovies)
 
     useEffect (() =>{
         fetchMovies();
@@ -33,21 +37,26 @@ const MovieApi = () => {
         e.preventDefault()
         setSearch(e.target.value)
         placeHolder=search
-        fetchMovies();
-
+        fetchMovies()
+        console.log(search)
     }
     
     function onSubmit(e){
         e.preventDefault()
         setSearch(e.target.value)
-        placeHolder=search
         fetchMovies();
     }
 
   return (
     <div>
         <Form value ={search} onClick={onSubmit} onChange={handleChange} />
-        <MovieList post={post} />
+        {errorMessage ?(
+            <p>
+                {errorMessage}
+            </p>
+        ) :(
+            <MovieList post={post} />
+        )}
     </div>
   )
 }
