@@ -3,7 +3,7 @@ import React from 'react'
 const Form = (post) => {
   return (
     <div>
-        <form action="">
+        <form>
             <input type="text" onChange ={post.onChange} value ={post.value} />
             <button onClick={post.onClick}>Search</button>
         </form>

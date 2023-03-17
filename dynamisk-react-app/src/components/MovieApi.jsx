@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Form from './Form';
 import MovieList from './MovieList';
 
@@ -11,7 +11,7 @@ const MovieApi = () => {
     
     const fetchMovies = async () => {
         try {
-            const response = await fetch('http://www.omdbapi.com/?apikey=57a921d4&s='+placeHolder);
+            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${placeHolder}`);
             const post = await response.json();
             if(post.Response =="True"){
                 setPost(post.Search);
@@ -35,10 +35,10 @@ const MovieApi = () => {
 
     function handleChange(e){
         e.preventDefault()
-        setSearch(e.target.value)
         placeHolder=search
+        console.log(e.target.value);
+        setSearch(e.target.value);
         fetchMovies()
-        console.log(search)
     }
     
     function onSubmit(e){
