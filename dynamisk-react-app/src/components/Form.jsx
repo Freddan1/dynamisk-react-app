@@ -1,11 +1,23 @@
 import React from 'react'
 
-const Form = (post) => {
+const Form = ({value, onChange, onClick, onFilter}) => {
+  const types = [
+    "All",
+    "Movie",
+    "Series",
+    "Game"
+  ];
+
   return (
     <div>
         <form>
-            <input type="text" onChange ={post.onChange} value ={post.value} />
-            <button onClick={post.onClick}>Search</button>
+          <input type="text" onChange ={onChange} value ={value} />
+          <button onClick={onClick}>Search</button>
+          <select onChange={onFilter}>
+            {types.map((type) =>(
+              <option key={type}>{type}</option>
+            ))}
+          </select>
         </form>
     </div>
   )
