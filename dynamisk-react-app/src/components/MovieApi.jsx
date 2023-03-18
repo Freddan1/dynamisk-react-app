@@ -7,16 +7,18 @@ const MovieApi = () => {
     var placeHolder = "batman"
     const [search, setSearch] = useState ("")
     const [post, setPost] = useState([]);
-    const [errorMessage, setErrorMessage] = useState ("")
+    const [errorMessage, setErrorMessage] = useState ("");
+    const [selectedType, setSelectedType] = useState("");
     
     const fetchMovies = async () => {
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${placeHolder}`);
+            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${placeHolder}&type=${selectedType}`);
             const post = await response.json();
             if(post.Response =="True"){
                 setPost(post.Search);
                 setErrorMessage("");
-                console.log(post)
+                console.log(post.Search)
+
             } else{
                 setPost[""];
                 setErrorMessage(post.Error)
@@ -45,11 +47,15 @@ const MovieApi = () => {
         e.preventDefault()
         setSearch(e.target.value)
         fetchMovies();
+    };
+
+    function handleFilter(e){
+        setSelectedType(e.target.value);
     }
 
   return (
     <div>
-        <Form value ={search} onClick={onSubmit} onChange={handleChange} />
+        <Form value ={search} onClick={onSubmit} onChange={handleChange} onFilter={handleFilter} />
         {errorMessage ?(
             <p>
                 {errorMessage}
