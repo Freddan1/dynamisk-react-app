@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Form = ({value, onChange, onClick, onFilter}) => {
+const Form = ({value, onChange, onClick, onFilter, allGenres}) => {
+
   const types = [
     "All",
-    "Movie",
-    "Series",
-    "Game"
+    "movie",
+    "series",
+    "game"
   ];
 
   return (
@@ -16,11 +17,11 @@ const Form = ({value, onChange, onClick, onFilter}) => {
           <select onChange={onFilter}>
             {types.map((type) =>(
               <option key={type}>{type}</option>
-            ))}
+            ))};
           </select>
         </form>
     </div>
   )
-}
+};
 
 export default Form
