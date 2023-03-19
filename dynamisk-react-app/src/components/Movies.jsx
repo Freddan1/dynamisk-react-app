@@ -3,7 +3,7 @@ import React from 'react'
 const Movies = ({post}) => {
   const errorMessage = "LIST IS EMPTY"
   return (
-    <div>
+    <div className='movieContainer'>
       {
         post.length
             ? post.map((post) => 

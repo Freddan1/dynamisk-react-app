@@ -5,14 +5,14 @@ import MovieList from './MovieList';
 
 const MovieApi = () => {
     var placeHolder = "batman"
-    const [search, setSearch] = useState ("")
+    const [search, setSearch] = useState ("naruto")
     const [post, setPost] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
     const [selectedType, setSelectedType] = useState("");
     
     const fetchMovies = async () => {
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${placeHolder}&type=${selectedType}`);
+            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${search}&type=${selectedType}`);
             const post = await response.json();
             if(post.Response =="True"){
                 setPost(post.Search);
@@ -33,14 +33,13 @@ const MovieApi = () => {
 
     useEffect (() =>{
         fetchMovies();
-    },[])
+    },[search, selectedType]);
 
     function handleChange(e){
         e.preventDefault()
-        placeHolder=search
         console.log(e.target.value);
         setSearch(e.target.value);
-        fetchMovies()
+
     }
     
     function onSubmit(e){
@@ -51,11 +50,17 @@ const MovieApi = () => {
 
     function handleFilter(e){
         setSelectedType(e.target.value);
-    }
+    };
+
+    const allTypes = (e) => {
+        const value = e.target.value;
+        setSelectedType(value === "all" ? "" : value);
+      };
+      
 
   return (
     <div>
-        <Form value ={search} onClick={onSubmit} onChange={handleChange} onFilter={handleFilter} />
+        <Form value ={search} onClick={onSubmit} onChange={handleChange} onFilter={handleFilter}/>
         {errorMessage ?(
             <p>
                 {errorMessage}
