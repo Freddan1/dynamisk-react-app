@@ -1,23 +1,17 @@
 import React from 'react'
 
-const Form = ({value, onChange, onClick, onFilter, allGenres}) => {
-
-  const types = [
-    "All",
-    "movie",
-    "series",
-    "game"
-  ];
+const Form = ({value, onChange, onClick, onFilter}) => {
 
   return (
     <div>
         <form>
-          <input type="text" onChange ={onChange} value ={value} />
-          <button onClick={onClick}>Search</button>
+          <input type="text" placeholder='Search' onChange ={onChange} value ={value} />
+          {/* <button onClick={onClick}>Search</button> */}
           <select onChange={onFilter}>
-            {types.map((type) =>(
-              <option key={type}>{type}</option>
-            ))};
+            <option value="">All</option>
+            <option value="movie">Movies</option>
+            <option value="series">Series</option>
+            <option value="game">Games</option>
           </select>
         </form>
     </div>
