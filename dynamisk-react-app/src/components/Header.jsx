@@ -4,7 +4,7 @@ import logo from './popcorn.png'
 const Header = () => {
   return (
     <div className="logo">
-      <img src={logo} alt="img" height="150px" width=""/>
+      <img src={logo} alt="img" height="150px"/>
     </div>
   )
 }

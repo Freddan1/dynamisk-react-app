@@ -8,8 +8,8 @@
   ul {
     margin: 20px 0;
     padding: 10px;
-    flex-basis: calc(33.33% - 20px); /* set initial width to 33.33% minus margin */
-    flex-grow: 1; /* allow items to grow if there is extra space available */
+    flex-basis: calc(33.33% - 20px); 
+    flex-grow: 1; 
     text-align: center;
   }
 

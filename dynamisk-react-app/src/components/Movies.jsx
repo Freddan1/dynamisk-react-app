@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Movies.css'
+import styles from './Movies.modules.css'
 
 const Movies = ({post}) => {
   const errorMessage = "LIST IS EMPTY"
@@ -9,7 +9,7 @@ const Movies = ({post}) => {
       {
         post.length
             ? post.map((post) => 
-              <ul key ={post.imdbID} className="movieItem"> 
+              <ul key ={post.imdbID} className={styles}> 
                 <h2>{post.Title}</h2>
                 <h3>{post.Year}</h3>
                 <p>Type: {post.Type.charAt(0).toUpperCase() + post.Type.slice(1)}</p>
