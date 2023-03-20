@@ -4,7 +4,6 @@ import MovieList from './MovieList';
 
 
 const MovieApi = () => {
-    var placeHolder = "batman"
     const [search, setSearch] = useState ("naruto")
     const [post, setPost] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
@@ -17,7 +16,7 @@ const MovieApi = () => {
             if(post.Response =="True"){
                 setPost(post.Search);
                 setErrorMessage("");
-                console.log(post.Search)
+
 
             } else{
                 setPost[""];
@@ -29,7 +28,7 @@ const MovieApi = () => {
             setPost([])
             setErrorMessage("An error occurred while fetching movies.")
         }
-    }
+    };
 
     useEffect (() =>{
         fetchMovies();
@@ -37,9 +36,7 @@ const MovieApi = () => {
 
     function handleChange(e){
         e.preventDefault()
-        console.log(e.target.value);
         setSearch(e.target.value);
-
     }
     
     function onSubmit(e){
@@ -51,12 +48,6 @@ const MovieApi = () => {
     function handleFilter(e){
         setSelectedType(e.target.value);
     };
-
-    const allTypes = (e) => {
-        const value = e.target.value;
-        setSelectedType(value === "all" ? "" : value);
-      };
-      
 
   return (
     <div>
