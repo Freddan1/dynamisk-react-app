@@ -1,0 +1,15 @@
+.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+  }
+  
+  ul {
+    margin: 20px 0;
+    padding: 10px;
+    flex-basis: calc(33.33% - 20px); 
+    flex-grow: 1; 
+    text-align: center;
+  }
+
