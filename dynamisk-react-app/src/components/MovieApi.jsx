@@ -4,7 +4,7 @@ import MovieList from './MovieList';
 
 
 const MovieApi = () => {
-    const [search, setSearch] = useState ("naruto")
+    const [search, setSearch] = useState ("Harry potter")
     const [post, setPost] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
     const [selectedType, setSelectedType] = useState("");
@@ -35,7 +35,6 @@ const MovieApi = () => {
     },[search, selectedType]);
 
     function handleChange(e){
-        e.preventDefault()
         setSearch(e.target.value);
     }
     
