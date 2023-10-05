@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server.js",
-    "test": "jest  --group=-component --group=-integration --group=-unit",
+    "test": "jest ",
     "componenttest": "jest  --group=component",
     "integrationtest": "jest  --group=integration",
     "prepare": "husky install"
