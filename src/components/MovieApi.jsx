@@ -11,6 +11,7 @@ const MovieApi = () => {
     
     const fetchMovies = async () => {
         try {
+            console.log("Hello World");
             const response = await fetch(`https://www.omdbapi.com/?apikey=57a921d4&s=${search}&type=${selectedType}`);
             const post = await response.json();
             if(post.Response =="True"){
