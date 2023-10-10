@@ -4,14 +4,13 @@ import MovieList from './MovieList';
 
 
 const MovieApi = () => {
-    const [search, setSearch] = useState ("Harry potter")
+    const [search, setSearch] = useState ("Naruto")
     const [post, setPost] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
     const [selectedType, setSelectedType] = useState("");
     
     const fetchMovies = async () => {
         try {
-            console.log("Hello World");
             const response = await fetch(`https://www.omdbapi.com/?apikey=57a921d4&s=${search}&type=${selectedType}`);
             const post = await response.json();
             if(post.Response =="True"){
