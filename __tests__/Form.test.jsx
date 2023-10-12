@@ -1,5 +1,5 @@
 /**
- * @group component
+ * @group unit
  */
 
 
